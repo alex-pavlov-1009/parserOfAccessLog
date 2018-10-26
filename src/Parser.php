@@ -12,8 +12,7 @@ class Parser {
     private $_lines;
 
     public function __construct(string $pathToFile){
-        $fileService = new FileService();
-        $this->_fileService = $fileService;
+        $this->_fileService = new FileService();
         $this->_readLog($pathToFile);
     }
 
