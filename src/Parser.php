@@ -8,12 +8,12 @@ use \Exception;
 
 class Parser {
 
-    private $_parserService;
+    private $_fileService;
     private $_lines;
 
     public function __construct(string $pathToFile){
-        $parserService = new FileService();
-        $this->_parserService = $parserService;
+        $fileService = new FileService();
+        $this->_fileService = $fileService;
         $this->_readLog($pathToFile);
     }
 
@@ -52,7 +52,7 @@ class Parser {
     private function _readLog(string $pathToFile)
     {
         try {
-            $this->_lines = $this->_parserService->fileBylines($pathToFile);
+            $this->_lines = $this->_fileService->fileBylines($pathToFile);
         } catch (Exception $e) {
             throw new Exception("FileService", 0, $e);
         }
